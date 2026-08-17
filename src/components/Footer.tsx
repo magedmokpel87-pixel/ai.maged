@@ -34,8 +34,23 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-3">Legal</h3>
+            <h3 className="text-white font-semibold mb-3">Resources</h3>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/tools" className="hover:text-white transition-colors">
+                  All Tools
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare" className="hover:text-white transition-colors">
+                  Comparisons
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
               <li>
                 <Link href="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
@@ -52,8 +67,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About Us
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>

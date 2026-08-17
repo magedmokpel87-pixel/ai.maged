@@ -25,8 +25,8 @@ yarn-error.log*
 # local env files
 .env*.local
 
-# vercel
-.vercel
+# aws amplify
+amplify-builds/
 
 # typescript
 *.tsbuildinfo

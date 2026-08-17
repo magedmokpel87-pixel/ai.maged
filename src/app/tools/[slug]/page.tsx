@@ -7,15 +7,16 @@ import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): { slug: string }[] {
   return getAllProductIds().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const product = getProductById(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductById(slug);
   if (!product) return {};
   return {
     title: `${product.name} Review 2026 - Features, Pricing & Verdict`,
@@ -23,8 +24,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function ToolPage({ params }: Props) {
-  const product = getProductById(params.slug);
+export default async function ToolPage({ params }: Props) {
+  const { slug } = await params;
+  const product = getProductById(slug);
   if (!product) notFound();
 
   const relatedProducts = getProductsByCategory(product.category).filter(p => p.id !== product.id);
@@ -59,38 +61,38 @@ export default function ToolPage({ params }: Props) {
       />
 
       {/* Breadcrumbs */}
-      <div className="bg-gray-50 border-b">
+      <div className="bg-navy-800 border-b border-navy-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex text-sm text-gray-500">
+          <nav className="flex text-sm text-gray-400">
             <Link href="/" className="hover:text-electric-500">Home</Link>
             <span className="mx-2">/</span>
             <Link href={`/category/${product.category}`} className="hover:text-electric-500">{product.categoryName}</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900 font-medium">{product.name}</span>
+            <span className="text-white font-medium">{product.name}</span>
           </nav>
         </div>
       </div>
 
       {/* Product Header */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-navy-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">{product.name}</h1>
-              <p className="text-lg text-gray-600 mb-4">{product.tagline}</p>
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">{product.name}</h1>
+              <p className="text-lg text-gray-300 mb-4">{product.tagline}</p>
               <div className="flex flex-wrap gap-2">
                 {product.features.map((feature) => (
-                  <span key={feature} className="text-sm bg-blue-50 text-electric-500 px-3 py-1 rounded-full font-medium">
+                  <span key={feature} className="text-sm bg-electric-500/20 text-electric-400 px-3 py-1 rounded-full font-medium">
                     {feature}
                   </span>
                 ))}
               </div>
             </div>
             <div className="flex-shrink-0">
-              <div className="bg-gray-50 rounded-xl p-6 text-center">
-                <p className="text-sm text-gray-500 mb-1">Affiliate Commission</p>
+              <div className="bg-navy-700 rounded-xl p-6 text-center">
+                <p className="text-sm text-gray-400 mb-1">Affiliate Commission</p>
                 <p className="text-2xl font-bold text-electric-500">{product.commission}</p>
-                <p className="text-xs text-gray-400 mt-1">{product.commissionType}</p>
+                <p className="text-xs text-gray-500 mt-1">{product.commissionType}</p>
               </div>
             </div>
           </div>
@@ -98,25 +100,25 @@ export default function ToolPage({ params }: Props) {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-navy-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="prose prose-lg max-w-none">
             {/* Description */}
-            <div className="bg-white rounded-xl p-8 mb-8">
-              <h2 className="text-2xl font-bold text-navy-900 mb-4">What is {product.name}?</h2>
-              <p className="text-gray-700 leading-relaxed">{product.description}</p>
+            <div className="bg-navy-700 rounded-xl p-8 mb-8">
+              <h2 className="text-2xl font-bold text-white mb-4">What is {product.name}?</h2>
+              <p className="text-gray-300 leading-relaxed">{product.description}</p>
             </div>
 
             {/* Pros & Cons */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white rounded-xl p-6">
+              <div className="bg-navy-700 rounded-xl p-6">
                 <h3 className="text-lg font-bold text-green-700 mb-4 flex items-center">
                   <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-2 text-sm">+</span>
                   Pros
                 </h3>
                 <ul className="space-y-3">
                   {product.pros.map((pro) => (
-                    <li key={pro} className="flex items-start text-gray-700">
+                    <li key={pro} className="flex items-start text-gray-300">
                       <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -125,14 +127,14 @@ export default function ToolPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
-              <div className="bg-white rounded-xl p-6">
+              <div className="bg-navy-700 rounded-xl p-6">
                 <h3 className="text-lg font-bold text-red-700 mb-4 flex items-center">
                   <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-2 text-sm">-</span>
                   Cons
                 </h3>
                 <ul className="space-y-3">
                   {product.cons.map((con) => (
-                    <li key={con} className="flex items-start text-gray-700">
+                    <li key={con} className="flex items-start text-gray-300">
                       <svg className="w-5 h-5 text-red-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
@@ -144,9 +146,9 @@ export default function ToolPage({ params }: Props) {
             </div>
 
             {/* Best For */}
-            <div className="bg-white rounded-xl p-8 mb-8">
-              <h2 className="text-2xl font-bold text-navy-900 mb-4">Who is {product.name} Best For?</h2>
-              <p className="text-gray-700 text-lg">{product.bestFor}</p>
+            <div className="bg-navy-700 rounded-xl p-8 mb-8">
+              <h2 className="text-2xl font-bold text-white mb-4">Who is {product.name} Best For?</h2>
+              <p className="text-gray-300 text-lg">{product.bestFor}</p>
             </div>
 
             {/* CTA */}
@@ -164,9 +166,9 @@ export default function ToolPage({ params }: Props) {
 
       {/* Related Products */}
       {otherProducts.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-navy-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-navy-900 mb-6 text-center">You Might Also Like</h2>
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">You Might Also Like</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {otherProducts.slice(0, 3).map((p) => (
                 <ProductCard key={p.id} product={p} />

@@ -7,15 +7,16 @@ import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): { slug: string }[] {
   return getAllCategorySlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const category = getCategoryBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
   if (!category) return {};
   return {
     title: `Best ${category.name} Tools - Reviews & Comparisons`,
@@ -23,11 +24,12 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CategoryPage({ params }: Props) {
-  const category = getCategoryBySlug(params.slug);
+export default async function CategoryPage({ params }: Props) {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
   if (!category) notFound();
 
-  const categoryProducts = getProductsByCategory(params.slug);
+  const categoryProducts = getProductsByCategory(slug);
 
   return (
     <>
@@ -86,7 +88,7 @@ export default function CategoryPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-navy-900 mb-6 text-center">Other Categories</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {categories.filter(c => c.slug !== params.slug).map((cat) => (
+            {categories.filter(c => c.slug !== slug).map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}

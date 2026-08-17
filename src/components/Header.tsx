@@ -22,6 +22,9 @@ export default function Header() {
             <Link href="/" className="text-gray-300 hover:text-white transition-colors">
               Home
             </Link>
+            <Link href="/tools" className="text-gray-300 hover:text-white transition-colors">
+              Tools
+            </Link>
             <div className="relative">
               <button
                 onClick={() => setCategoriesOpen(!categoriesOpen)}
@@ -48,6 +51,9 @@ export default function Header() {
                 </div>
               )}
             </div>
+            <Link href="/compare" className="text-gray-300 hover:text-white transition-colors">
+              Compare
+            </Link>
             <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
               About
             </Link>
@@ -87,6 +93,12 @@ export default function Header() {
                 </Link>
               ))}
             </div>
+            <Link href="/tools" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
+              Tools
+            </Link>
+            <Link href="/compare" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
+              Compare
+            </Link>
             <Link href="/about" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
               About
             </Link>
