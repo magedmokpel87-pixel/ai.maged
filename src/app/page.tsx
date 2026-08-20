@@ -9,11 +9,19 @@ export default function Home() {
 
   return (
     <>
+      {/* Ambient backgrounds */}
+      <div className="mesh"></div>
+      <div className="grain"></div>
+
       {/* Hero Section */}
-      <section className="bg-navy-900 text-white">
+      <section className="relative bg-void text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-gold-bright border border-gold/35 bg-gold/6 px-3 py-1.5 rounded-full mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+              AI Tools · Marketing · Honest Reviews
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 font-display">
               Find the Right{" "}
               <span className="text-electric-500">AI & Marketing</span>{" "}
               Tools

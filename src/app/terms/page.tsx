@@ -3,6 +3,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "MOTION.X terms of service. Please read these terms before using our website.",
+  alternates: {
+    canonical: "https://motionx.io/terms",
+  },
+  robots: {
+    index: true,
+    follow: false,
+  },
 };
 
 export default function TermsPage() {

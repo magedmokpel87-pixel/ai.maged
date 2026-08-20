@@ -21,6 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Best ${category.name} Tools - Reviews & Comparisons`,
     description: `Discover the best ${category.name.toLowerCase()} tools. Expert reviews, honest comparisons, and recommendations to help you choose the right software.`,
+    alternates: {
+      canonical: `https://motionx.io/category/${slug}`,
+    },
+    openGraph: {
+      title: `Best ${category.name} Tools - Reviews & Comparisons`,
+      description: `Discover the best ${category.name.toLowerCase()} tools. Expert reviews, honest comparisons, and recommendations to help you choose the right software.`,
+      url: `https://motionx.io/category/${slug}`,
+    },
   };
 }
 
@@ -43,6 +51,26 @@ export default async function CategoryPage({ params }: Props) {
           ],
         }}
       />
+      {categoryProducts.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `Best ${category.name} Tools`,
+            description: category.description,
+            itemListElement: categoryProducts.map((product, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Product",
+                name: product.name,
+                description: product.tagline,
+                url: `https://motionx.io/tools/${product.id}`,
+              },
+            })),
+          }}
+        />
+      )}
 
       {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b">

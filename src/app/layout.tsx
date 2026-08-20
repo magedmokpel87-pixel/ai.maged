@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: '--font-space-grotesk',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: '--font-jetbrains-mono',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://motionx.io"),
@@ -16,13 +29,22 @@ export const metadata: Metadata = {
   description:
     "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
   keywords: ["AI tools", "marketing tools", "software reviews", "tool comparison", "productivity"],
+  applicationName: "MOTION.X",
+  alternates: {
+    canonical: "https://motionx.io",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "MOTION.X",
+    title: "MOTION.X — Find the Right AI & Marketing Tools",
+    description: "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
+    url: "https://motionx.io",
   },
   twitter: {
     card: "summary_large_image",
+    title: "MOTION.X — Find the Right AI & Marketing Tools",
+    description: "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
   },
   robots: {
     index: true,
@@ -37,7 +59,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans`}>
         <JsonLd
           data={{
             "@context": "https://schema.org",
@@ -45,7 +67,15 @@ export default function RootLayout({
             name: "MOTION.X",
             url: "https://motionx.io",
             description: "Expert reviews and comparisons of AI and marketing tools.",
-            sameAs: [],
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "MOTION.X",
+            url: "https://motionx.io",
+            description: "Discover and compare the best AI tools, marketing platforms, and productivity software.",
           }}
         />
         <Header />

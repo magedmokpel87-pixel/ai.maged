@@ -21,6 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.name} Review 2026 - Features, Pricing & Verdict`,
     description: `${product.name} review: ${product.tagline} Read our honest analysis of features, pros, cons, and who it's best for.`,
+    alternates: {
+      canonical: `https://motionx.io/tools/${slug}`,
+    },
+    openGraph: {
+      title: `${product.name} Review 2026 - Features, Pricing & Verdict`,
+      description: `${product.name} review: ${product.tagline} Read our honest analysis of features, pros, cons, and who it's best for.`,
+      url: `https://motionx.io/tools/${slug}`,
+      type: 'article',
+    },
   };
 }
 
@@ -40,11 +49,13 @@ export default async function ToolPage({ params }: Props) {
           "@type": "Product",
           name: product.name,
           description: product.description,
+          url: `https://motionx.io/tools/${product.id}`,
           category: product.categoryName,
           review: {
             "@type": "Review",
             author: { "@type": "Organization", name: "MOTION.X" },
             reviewBody: product.description,
+            publisher: { "@type": "Organization", name: "MOTION.X" },
           },
         }}
       />

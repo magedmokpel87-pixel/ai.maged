@@ -3,6 +3,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Affiliate Disclosure",
   description: "MOTION.X affiliate disclosure. Transparency about how we earn money through affiliate partnerships.",
+  alternates: {
+    canonical: "https://motionx.io/affiliate-disclosure",
+  },
+  robots: {
+    index: true,
+    follow: false,
+  },
 };
 
 export default function AffiliateDisclosurePage() {

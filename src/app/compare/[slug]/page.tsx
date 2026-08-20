@@ -41,6 +41,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${comp.title} - Which is Better in 2026?`,
     description: `${comp.title} comparison: Features, pricing, pros & cons side by side. Find out which tool is right for your business.`,
+    alternates: {
+      canonical: `https://motionx.io/compare/${slug}`,
+    },
+    openGraph: {
+      title: `${comp.title} - Which is Better in 2026?`,
+      description: `${comp.title} comparison: Features, pricing, pros & cons side by side. Find out which tool is right for your business.`,
+      url: `https://motionx.io/compare/${slug}`,
+      type: 'article',
+    },
   };
 }
 

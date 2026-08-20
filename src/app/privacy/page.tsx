@@ -3,6 +3,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "MOTION.X privacy policy. Learn how we collect, use, and protect your information.",
+  alternates: {
+    canonical: "https://motionx.io/privacy",
+  },
+  robots: {
+    index: true,
+    follow: false,
+  },
 };
 
 export default function PrivacyPage() {

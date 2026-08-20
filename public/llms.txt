@@ -1,0 +1,55 @@
+# MOTION.X - AI & Marketing Tools Reviews
+
+## About
+MOTION.X provides expert reviews and honest comparisons of AI tools, marketing platforms, and productivity software. We research, test, and compare tools so you can make informed decisions.
+
+## Sitemap
+https://motionx.io/sitemap.xml
+
+## Key Pages
+- Homepage: https://motionx.io
+- All Tools: https://motionx.io/tools
+- Comparisons: https://motionx.io/compare
+- About: https://motionx.io/about
+- Contact: https://motionx.io/contact
+
+## Categories
+- All-in-One Marketing: https://motionx.io/category/all-in-one-marketing
+- CRM & Automation: https://motionx.io/category/crm-automation
+- Learning Platforms: https://motionx.io/category/learning-platforms
+- AI Writing Tools: https://motionx.io/category/ai-writing
+- Productivity: https://motionx.io/category/productivity
+
+## Product Reviews
+- Systeme.io: https://motionx.io/tools/systeme-io
+- HubSpot: https://motionx.io/tools/hubspot
+- Coursera: https://motionx.io/tools/coursera
+- Jasper AI: https://motionx.io/tools/jasper-ai
+- Notion: https://motionx.io/tools/notion
+
+## Comparisons
+- Systeme.io vs HubSpot: https://motionx.io/compare/systeme-io-vs-hubspot
+- Best AI Writing Tools: https://motionx.io/compare/best-ai-writing-tools
+- Best Digital Marketing Courses: https://motionx.io/compare/best-digital-marketing-courses
+
+## Purpose
+Help users find the right tools through research-based reviews, honest assessments, and transparent affiliate disclosure.
+
+## Legal
+- Privacy Policy: https://motionx.io/privacy
+- Terms of Service: https://motionx.io/terms
+- Affiliate Disclosure: https://motionx.io/affiliate-disclosure
+
+## Content Structure
+Each tool review includes:
+- What the tool is and who makes it
+- Key features and capabilities
+- Pros and cons (honest assessment)
+- Who the tool is best for
+- Affiliate commission information (transparent disclosure)
+
+Each comparison includes:
+- Side-by-side feature comparison
+- Pros and cons for each tool
+- Verdict and recommendations
+- Links to full reviews

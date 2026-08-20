@@ -4,6 +4,9 @@ import CTAButton from "@/components/CTAButton";
 export const metadata: Metadata = {
   title: "About MOTION.X",
   description: "Learn about MOTION.X - our mission to help you find the right AI and marketing tools through honest reviews and expert comparisons.",
+  alternates: {
+    canonical: "https://motionx.io/about",
+  },
 };
 
 export default function AboutPage() {

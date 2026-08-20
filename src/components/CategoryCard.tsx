@@ -13,7 +13,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
     >
       <div className="text-3xl mb-3">{category.icon}</div>
       <h3 className="text-lg font-bold text-white mb-2">{category.name}</h3>
-      <p className="text-sm text-gray-600">{category.description}</p>
+      <p className="text-sm text-gray-400">{category.description}</p>
     </Link>
   );
 }
