@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
@@ -21,29 +22,29 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://motionx.io"),
+  metadataBase: new URL("https://aimaged.com"),
   title: {
-    default: "MOTION.X — Find the Right AI & Marketing Tools",
-    template: "%s | MOTION.X",
+    default: "AI.MAGED — Find the Right AI & Marketing Tools",
+    template: "%s | AI.MAGED",
   },
   description:
     "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
   keywords: ["AI tools", "marketing tools", "software reviews", "tool comparison", "productivity"],
-  applicationName: "MOTION.X",
+  applicationName: "AI.MAGED",
   alternates: {
-    canonical: "https://motionx.io",
+    canonical: "https://aimaged.com",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "MOTION.X",
-    title: "MOTION.X — Find the Right AI & Marketing Tools",
+    siteName: "AI.MAGED",
+    title: "AI.MAGED — Find the Right AI & Marketing Tools",
     description: "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
-    url: "https://motionx.io",
+    url: "https://aimaged.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MOTION.X — Find the Right AI & Marketing Tools",
+    title: "AI.MAGED — Find the Right AI & Marketing Tools",
     description: "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
   },
   robots: {
@@ -64,8 +65,8 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "MOTION.X",
-            url: "https://motionx.io",
+            name: "AI.MAGED",
+            url: "https://aimaged.com",
             description: "Expert reviews and comparisons of AI and marketing tools.",
           }}
         />
@@ -73,14 +74,16 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "MOTION.X",
-            url: "https://motionx.io",
+            name: "AI.MAGED",
+            url: "https://aimaged.com",
             description: "Discover and compare the best AI tools, marketing platforms, and productivity software.",
           }}
         />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

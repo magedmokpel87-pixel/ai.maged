@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with MOTION.X. Questions, feedback, or partnership inquiries.",
+  description: "Get in touch with AI.MAGED. Questions, feedback, or partnership inquiries.",
   alternates: {
-    canonical: "https://motionx.io/contact",
+    canonical: "https://aimaged.com/contact",
   },
 };
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-navy-900 mb-2">Partnership & Affiliate</h3>
                 <p className="text-gray-600">
-                  Interested in having your tool reviewed or partnering with MOTION.X? Let us know.
+                  Interested in having your tool reviewed or partnering with AI.MAGED? Let us know.
                 </p>
               </div>
               <div className="pt-4 border-t border-gray-100">

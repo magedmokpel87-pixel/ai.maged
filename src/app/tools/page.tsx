@@ -4,9 +4,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "All Tools",
-  description: "Browse all AI and marketing tools reviewed by MOTION.X. Find the right tool for your needs.",
+  description: "Browse all AI and marketing tools reviewed by AI.MAGED. Find the right tool for your needs.",
   alternates: {
-    canonical: "https://motionx.io/tools",
+    canonical: "https://aimaged.com/tools",
   },
 };
 

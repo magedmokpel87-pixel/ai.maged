@@ -1,36 +1,41 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { categories } from "@/data/categories";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import LanguageToggle from "@/components/LanguageToggle";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const { tr } = useLanguage();
 
   return (
     <header className="bg-navy-900 text-white sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-electric-500">MOTION</span>
-            <span className="text-2xl font-bold text-white">.X</span>
+          <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
+            <Image src="/logo.png" alt="AI.MAGED" width={40} height={40} className="h-9 w-auto" priority />
+            <span className="text-2xl font-bold text-electric-500">AI</span>
+            <span className="text-2xl font-bold text-white">.MAGED</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
             <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-              Home
+              {tr("nav.home")}
             </Link>
             <Link href="/tools" className="text-gray-300 hover:text-white transition-colors">
-              Tools
+              {tr("nav.tools")}
             </Link>
             <div className="relative">
               <button
                 onClick={() => setCategoriesOpen(!categoriesOpen)}
-                className="text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
+                className="text-gray-300 hover:text-white transition-colors flex items-center space-x-1 rtl:space-x-reverse"
               >
-                <span>Categories</span>
+                <span>{tr("nav.categories")}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -52,36 +57,40 @@ export default function Header() {
               )}
             </div>
             <Link href="/compare" className="text-gray-300 hover:text-white transition-colors">
-              Compare
+              {tr("nav.compare")}
             </Link>
             <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-              About
+              {tr("nav.about")}
             </Link>
+            <LanguageToggle />
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-300 hover:text-white"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <LanguageToggle />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-gray-300 hover:text-white"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden pb-4">
             <Link href="/" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-              Home
+              {tr("nav.home")}
             </Link>
             <div className="py-2">
-              <p className="text-gray-500 text-sm uppercase tracking-wider mb-1">Categories</p>
+              <p className="text-gray-500 text-sm uppercase tracking-wider mb-1">{tr("nav.categories")}</p>
               {categories.map((cat) => (
                 <Link
                   key={cat.slug}
@@ -94,13 +103,13 @@ export default function Header() {
               ))}
             </div>
             <Link href="/tools" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-              Tools
+              {tr("nav.tools")}
             </Link>
             <Link href="/compare" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-              Compare
+              {tr("nav.compare")}
             </Link>
             <Link href="/about" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-              About
+              {tr("nav.about")}
             </Link>
           </div>
         )}

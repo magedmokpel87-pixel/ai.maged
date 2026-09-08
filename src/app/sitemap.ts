@@ -3,7 +3,7 @@ import { getAllProductIds } from "@/data/products";
 import { getAllCategorySlugs } from "@/data/categories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://motionx.io";
+  const baseUrl = "https://aimaged.com";
 
   const staticPages = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1.0 },

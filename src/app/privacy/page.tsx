@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "MOTION.X privacy policy. Learn how we collect, use, and protect your information.",
+  description: "AI.MAGED privacy policy. Learn how we collect, use, and protect your information.",
   alternates: {
-    canonical: "https://motionx.io/privacy",
+    canonical: "https://aimaged.com/privacy",
   },
   robots: {
     index: true,
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <p className="text-sm text-gray-500 mb-8">Last updated: August 2026</p>
         
         <h2 className="text-xl font-bold text-navy-900 mt-8 mb-4">1. Information We Collect</h2>
-        <p>MOTION.X collects minimal information. We may collect:</p>
+        <p>AI.MAGED collects minimal information. We may collect:</p>
         <ul className="list-disc pl-6 space-y-2 mb-6">
           <li>Anonymous usage data through analytics tools (page views, click patterns)</li>
           <li>Information you voluntarily provide (e.g., contact form submissions)</li>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         <p>We implement reasonable security measures to protect any information we collect. However, no internet transmission is 100% secure.</p>
 
         <h2 className="text-xl font-bold text-navy-900 mt-8 mb-4">6. Contact</h2>
-        <p>For privacy-related questions, contact us at privacy@motionx.io.</p>
+        <p>For privacy-related questions, contact us at privacy@aimaged.com.</p>
       </div>
     </div>
   );

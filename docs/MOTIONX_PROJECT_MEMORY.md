@@ -1,4 +1,4 @@
-# MOTION.X PROJECT MEMORY
+# AI.MAGED PROJECT MEMORY
 **Last Updated:** 2026-08-20  
 **Status:** Pre-deployment (Step 3 ready)  
 **Current Branch:** `visual-design-integration`
@@ -8,7 +8,7 @@
 ## VERIFIED CURRENT STATE (2026-08-20)
 
 ### Repository
-- **URL:** `git@github.com:magedmokpel87-pixel/motionx-site.git`
+- **URL:** `git@github.com:magedmokpel87-pixel/aimaged-site.git`
 - **Owner:** Maged Mokpel <magedmokpel87@gmail.com>
 - **Branches:** `main` (base), `visual-design-integration` (current, uncommitted changes)
 - **Last Commit:** `db5c302` - "Complete Step 2: Local build verification successful" (2026-08-17)
@@ -50,7 +50,7 @@
 - **Legal Pages:** 4 (Privacy, Terms, Affiliate Disclosure, Contact)
 
 ### Domain Configuration
-- **Production URL:** https://motionx.io (configured in amplify.yml and all metadata)
+- **Production URL:** https://aimaged.com (configured in amplify.yml and all metadata)
 - **Deployment Target:** AWS Amplify (config present, not yet deployed)
 
 ---
@@ -128,7 +128,7 @@ Identified 16 categories of SEO/AI discoverability features:
 
 **1. Canonical URLs (All 27 pages)**
 - Added `alternates.canonical` to every page's metadata
-- Format: `https://motionx.io/{path}`
+- Format: `https://aimaged.com/{path}`
 - Files: All page.tsx files in src/app/
 
 **2. AI Crawler Permissions (robots.ts)**
@@ -151,7 +151,7 @@ AI discoverability file for ChatGPT, Claude, Gemini, Perplexity
 
 **4. PWA Manifest (NEW FILE: src/app/manifest.ts)**
 Progressive Web App configuration:
-- App name: "MOTION.X - AI & Marketing Tools"
+- App name: "AI.MAGED - AI & Marketing Tools"
 - Colors from design system (void background, electric theme)
 - Icon references: icon-192.png, icon-512.png (not created yet)
 
@@ -233,8 +233,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductById(slug);
   return {
     title: `${product.name} Review 2026`,
-    alternates: { canonical: `https://motionx.io/tools/${slug}` },
-    openGraph: { url: `https://motionx.io/tools/${slug}`, type: 'article' }
+    alternates: { canonical: `https://aimaged.com/tools/${slug}` },
+    openGraph: { url: `https://aimaged.com/tools/${slug}`, type: 'article' }
   };
 }
 ```
@@ -355,7 +355,7 @@ frontend:
 **Next.js Config:** `output: 'standalone'` (configured in next.config.js)
 
 **Environment Variables Needed:**
-- `NEXT_PUBLIC_SITE_URL` - Set to "https://motionx.io" (currently hardcoded)
+- `NEXT_PUBLIC_SITE_URL` - Set to "https://aimaged.com" (currently hardcoded)
 
 ---
 
@@ -546,7 +546,7 @@ git push origin main
 2. Amplify auto-detects changes
 3. Runs `npm install` and `npm run build`
 4. Deploys .next/ artifacts to CDN
-5. Site live at https://motionx.io
+5. Site live at https://aimaged.com
 
 ---
 
@@ -573,10 +573,10 @@ These are intentional architectural decisions:
 ## BRAND & CONTENT GUIDELINES
 
 ### Brand Name
-- **Primary:** MOTION.X
-- **Format:** All caps with period between MOTION and X
-- **Usage in code:** "MOTION.X" (in metadata, schemas, content)
-- **Domain:** motionx.io (no period in domain)
+- **Primary:** AI.MAGED
+- **Format:** All caps with period between AI and MAGED
+- **Usage in code:** "AI.MAGED" (in metadata, schemas, content)
+- **Domain:** aimaged.com (no period in domain)
 
 ### Color System (Design Tokens)
 ```css
@@ -613,7 +613,7 @@ These are intentional architectural decisions:
 - **Name:** Maged Mokpel
 - **Email:** magedmokpel87@gmail.com
 - **GitHub:** magedmokpel87-pixel
-- **Repository:** motionx-site
+- **Repository:** aimaged-site
 
 ### No Credentials in Code
 ✅ Verified: No API keys, tokens, or secrets in repository
@@ -634,7 +634,7 @@ These are intentional architectural decisions:
 - [ ] Commit uncommitted changes (19 files)
 - [ ] Create pull request: visual-design-integration → main
 - [ ] Deploy to AWS Amplify
-- [ ] Verify deployment at motionx.io
+- [ ] Verify deployment at aimaged.com
 
 ### If Starting New Work
 - [ ] Create new branch from main

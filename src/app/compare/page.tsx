@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Tool Comparisons",
   description: "Side-by-side comparisons of the best AI and marketing tools. Find out which tool fits your needs.",
   alternates: {
-    canonical: "https://motionx.io/compare",
+    canonical: "https://aimaged.com/compare",
   },
 };
 

@@ -42,12 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${comp.title} - Which is Better in 2026?`,
     description: `${comp.title} comparison: Features, pricing, pros & cons side by side. Find out which tool is right for your business.`,
     alternates: {
-      canonical: `https://motionx.io/compare/${slug}`,
+      canonical: `https://aimaged.com/compare/${slug}`,
     },
     openGraph: {
       title: `${comp.title} - Which is Better in 2026?`,
       description: `${comp.title} comparison: Features, pricing, pros & cons side by side. Find out which tool is right for your business.`,
-      url: `https://motionx.io/compare/${slug}`,
+      url: `https://aimaged.com/compare/${slug}`,
       type: 'article',
     },
   };
@@ -69,9 +69,9 @@ export default async function ComparePage({ params }: Props) {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://motionx.io" },
-            { "@type": "ListItem", position: 2, name: "Comparisons", item: "https://motionx.io/compare" },
-            { "@type": "ListItem", position: 3, name: comp.title, item: `https://motionx.io/compare/${slug}` },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://aimaged.com" },
+            { "@type": "ListItem", position: 2, name: "Comparisons", item: "https://aimaged.com/compare" },
+            { "@type": "ListItem", position: 3, name: comp.title, item: `https://aimaged.com/compare/${slug}` },
           ],
         }}
       />

@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://motionx.io/sitemap.xml",
+    sitemap: "https://aimaged.com/sitemap.xml",
   };
 }

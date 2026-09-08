@@ -1,4 +1,4 @@
-# MOTION.X
+# AI.MAGED
 
 Affiliate marketing website for AI tools and marketing software.
 
@@ -53,7 +53,7 @@ Set in Amplify Console (not in code):
 ## Architecture
 
 ```
-USER -> MOTION.X (Next.js on Amplify) -> Product Pages -> Affiliate Links -> Merchant
+USER -> AI.MAGED (Next.js on Amplify) -> Product Pages -> Affiliate Links -> Merchant
 ```
 
 No database. No auth. No admin panel. Pure content site optimized for SEO and conversions.

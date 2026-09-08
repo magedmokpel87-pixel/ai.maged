@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'MOTION.X - AI & Marketing Tools',
-    short_name: 'MOTION.X',
+    name: 'AI.MAGED - AI & Marketing Tools',
+    short_name: 'AI.MAGED',
     description: 'Expert reviews and honest comparisons of AI tools, marketing platforms, and productivity software',
     start_url: '/',
     display: 'standalone',

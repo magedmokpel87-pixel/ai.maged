@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${product.name} Review 2026 - Features, Pricing & Verdict`,
     description: `${product.name} review: ${product.tagline} Read our honest analysis of features, pros, cons, and who it's best for.`,
     alternates: {
-      canonical: `https://motionx.io/tools/${slug}`,
+      canonical: `https://aimaged.com/tools/${slug}`,
     },
     openGraph: {
       title: `${product.name} Review 2026 - Features, Pricing & Verdict`,
       description: `${product.name} review: ${product.tagline} Read our honest analysis of features, pros, cons, and who it's best for.`,
-      url: `https://motionx.io/tools/${slug}`,
+      url: `https://aimaged.com/tools/${slug}`,
       type: 'article',
     },
   };
@@ -49,13 +49,13 @@ export default async function ToolPage({ params }: Props) {
           "@type": "Product",
           name: product.name,
           description: product.description,
-          url: `https://motionx.io/tools/${product.id}`,
+          url: `https://aimaged.com/tools/${product.id}`,
           category: product.categoryName,
           review: {
             "@type": "Review",
-            author: { "@type": "Organization", name: "MOTION.X" },
+            author: { "@type": "Organization", name: "AI.MAGED" },
             reviewBody: product.description,
-            publisher: { "@type": "Organization", name: "MOTION.X" },
+            publisher: { "@type": "Organization", name: "AI.MAGED" },
           },
         }}
       />
@@ -64,9 +64,9 @@ export default async function ToolPage({ params }: Props) {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://motionx.io" },
-            { "@type": "ListItem", position: 2, name: product.categoryName, item: `https://motionx.io/category/${product.category}` },
-            { "@type": "ListItem", position: 3, name: product.name, item: `https://motionx.io/tools/${product.id}` },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://aimaged.com" },
+            { "@type": "ListItem", position: 2, name: product.categoryName, item: `https://aimaged.com/category/${product.category}` },
+            { "@type": "ListItem", position: 3, name: product.name, item: `https://aimaged.com/tools/${product.id}` },
           ],
         }}
       />

@@ -2,10 +2,10 @@ import { Metadata } from "next";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata: Metadata = {
-  title: "About MOTION.X",
-  description: "Learn about MOTION.X - our mission to help you find the right AI and marketing tools through honest reviews and expert comparisons.",
+  title: "About AI.MAGED",
+  description: "Learn about AI.MAGED - our mission to help you find the right AI and marketing tools through honest reviews and expert comparisons.",
   alternates: {
-    canonical: "https://motionx.io/about",
+    canonical: "https://aimaged.com/about",
   },
 };
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <section className="py-16 bg-navy-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">About MOTION.X</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">About AI.MAGED</h1>
           <p className="text-gray-300 text-lg">Helping you find the right tools without the noise.</p>
         </div>
       </section>
@@ -24,7 +24,7 @@ export default function AboutPage() {
           <div className="prose prose-lg max-w-none text-gray-700">
             <h2 className="text-2xl font-bold text-navy-900 mb-4">Our Mission</h2>
             <p>The world of AI and marketing tools is overwhelming. Hundreds of options, conflicting reviews, and aggressive marketing make it hard to know what actually works for your specific situation.</p>
-            <p>MOTION.X exists to cut through that noise. We research, test, and compare tools so you can make an informed decision in minutes instead of hours.</p>
+            <p>AI.MAGED exists to cut through that noise. We research, test, and compare tools so you can make an informed decision in minutes instead of hours.</p>
 
             <h2 className="text-2xl font-bold text-navy-900 mt-12 mb-4">How We Review</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose mb-8">
@@ -47,7 +47,7 @@ export default function AboutPage() {
             </div>
 
             <h2 className="text-2xl font-bold text-navy-900 mt-12 mb-4">Affiliate Transparency</h2>
-            <p>MOTION.X earns revenue through affiliate partnerships. When you click our links and make a purchase, we may earn a commission at no extra cost to you. This supports our work but never influences our recommendations. Read our full <a href="/affiliate-disclosure" className="text-electric-500 hover:underline">Affiliate Disclosure</a>.</p>
+            <p>AI.MAGED earns revenue through affiliate partnerships. When you click our links and make a purchase, we may earn a commission at no extra cost to you. This supports our work but never influences our recommendations. Read our full <a href="/affiliate-disclosure" className="text-electric-500 hover:underline">Affiliate Disclosure</a>.</p>
           </div>
 
           <div className="mt-12 text-center">

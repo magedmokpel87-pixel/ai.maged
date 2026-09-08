@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Best ${category.name} Tools - Reviews & Comparisons`,
     description: `Discover the best ${category.name.toLowerCase()} tools. Expert reviews, honest comparisons, and recommendations to help you choose the right software.`,
     alternates: {
-      canonical: `https://motionx.io/category/${slug}`,
+      canonical: `https://aimaged.com/category/${slug}`,
     },
     openGraph: {
       title: `Best ${category.name} Tools - Reviews & Comparisons`,
       description: `Discover the best ${category.name.toLowerCase()} tools. Expert reviews, honest comparisons, and recommendations to help you choose the right software.`,
-      url: `https://motionx.io/category/${slug}`,
+      url: `https://aimaged.com/category/${slug}`,
     },
   };
 }
@@ -46,8 +46,8 @@ export default async function CategoryPage({ params }: Props) {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://motionx.io" },
-            { "@type": "ListItem", position: 2, name: category.name, item: `https://motionx.io/category/${category.slug}` },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://aimaged.com" },
+            { "@type": "ListItem", position: 2, name: category.name, item: `https://aimaged.com/category/${category.slug}` },
           ],
         }}
       />
@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }: Props) {
                 "@type": "Product",
                 name: product.name,
                 description: product.tagline,
-                url: `https://motionx.io/tools/${product.id}`,
+                url: `https://aimaged.com/tools/${product.id}`,
               },
             })),
           }}
