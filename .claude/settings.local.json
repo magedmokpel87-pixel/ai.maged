@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -p \"متطلبات Devpost.docx\" word/document.xml)",
+      "Bash(sed 's/<[^>]*>//g')",
+      "Bash(grep -v '^[[:space:]]*$')",
+      "Bash(python3 -c ' *)",
+      "Bash(7z x *)",
+      "Bash(grep -v '^$')",
+      "Bash(pip show *)",
+      "Bash(pip install *)",
+      "Bash(python golden_run.py)",
+      "Bash(export PYTHONIOENCODING=utf-8)",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, '.'\\); from agent import strands_available; print\\('strands_available\\(\\):', strands_available\\(\\)\\)\")",
+      "Bash(python -c \"from agent import strands_available; print\\('strands_available\\(\\):', strands_available\\(\\)\\)\")",
+      "Bash(python -m py_compile \"C:\\\\Users\\\\shams\\\\Desktop\\\\AI.Maged — Autonomous Book Publishing Agent\\\\discovery-agent\\\\agent.py\")"
+    ]
+  }
+}

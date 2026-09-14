@@ -1,0 +1,112 @@
+{
+  "name": "analyze-product",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "analyze-product",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "name": "Webhook - Trigger from Backend",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Validate incoming payload from Backend\nconst { runId, productRawData } = items[0].json;\nif (!runId || !productRawData) {\n  throw new Error('Missing runId or productRawData');\n}\nreturn items;"
+      },
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{$env.ANTHROPIC_API_KEY}}" },
+            { "name": "anthropic-version", "value": "2023-06-01" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-sonnet-4-6" },
+            { "name": "max_tokens", "value": "800" }
+          ]
+        }
+      },
+      "name": "AI Analysis (Claude)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [640, 200]
+    },
+    {
+      "parameters": {
+        "url": "https://api.affiliate-network.example/products/{{$json.productRawData.externalId}}",
+        "method": "GET"
+      },
+      "name": "Affiliate API Lookup",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [640, 400]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Merge AI copy + affiliate data into SEO-ready fields\nconst ai = items[0].json;\nconst affiliate = items[1] ? items[1].json : {};\nreturn [{ json: { seoSlugAr: ai.slugAr, seoSlugEn: ai.slugEn, descriptionAr: ai.ar, descriptionEn: ai.en, affiliateUrl: affiliate.url, images: affiliate.images } }];"
+      },
+      "name": "SEO Processing",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [860, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env.BACKEND_BASE_URL}}/api/n8n/callback",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "x-n8n-api-key", "value": "={{$env.N8N_API_KEY}}" }]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "runId", "value": "={{$node[\"Validate Input\"].json.runId}}" },
+            { "name": "status", "value": "success" },
+            { "name": "result", "value": "={{$json}}" }
+          ]
+        }
+      },
+      "name": "Callback to Backend API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1080, 300]
+    },
+    {
+      "parameters": { "respondWith": "json", "responseBody": "={\"received\": true}" },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1300, 300]
+    }
+  ],
+  "connections": {
+    "Webhook - Trigger from Backend": { "main": [[{ "node": "Validate Input", "type": "main", "index": 0 }]] },
+    "Validate Input": {
+      "main": [
+        [
+          { "node": "AI Analysis (Claude)", "type": "main", "index": 0 },
+          { "node": "Affiliate API Lookup", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "AI Analysis (Claude)": { "main": [[{ "node": "SEO Processing", "type": "main", "index": 0 }]] },
+    "Affiliate API Lookup": { "main": [[{ "node": "SEO Processing", "type": "main", "index": 0 }]] },
+    "SEO Processing": { "main": [[{ "node": "Callback to Backend API", "type": "main", "index": 0 }]] },
+    "Callback to Backend API": { "main": [[{ "node": "Respond to Webhook", "type": "main", "index": 0 }]] }
+  }
+}

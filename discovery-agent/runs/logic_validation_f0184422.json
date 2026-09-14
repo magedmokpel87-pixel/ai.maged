@@ -1,0 +1,198 @@
+{
+  "task_id": "f0184422-4e55-4405-b2f2-8cca3f9baa6e",
+  "agent": "discovery",
+  "agent_version": "0.2.0",
+  "run_type": "logic_validation",
+  "created_at": "2026-09-10T17:26:23.033758+00:00",
+  "request": {
+    "request_type": "opportunity_discovery",
+    "topic": "AI automation for small businesses",
+    "market": [
+      "global",
+      "arabic"
+    ],
+    "product_types": [
+      "ebook",
+      "affiliate"
+    ],
+    "language": "en",
+    "time_window_days": 90,
+    "max_candidates": 10
+  },
+  "status": "completed",
+  "data_mode": "SYNTHETIC_DEMO",
+  "decision": "REVIEW",
+  "opportunity_score": 80.1,
+  "topic": "AI automation for small businesses",
+  "market": [
+    "global",
+    "arabic"
+  ],
+  "rights": {
+    "classification": "UNKNOWN",
+    "note": "الحقوق غير مؤكدة — ممنوع BUILD لإنتاج المحتوى؛ REVIEW أو حوّل لمسار Affiliate"
+  },
+  "product_path": "content_production",
+  "problem": {
+    "statement": "جمهور AI automation for small businesses يواجه مشاكل متكررة مدعومة بأدلة",
+    "audience": "AI automation for small businesses",
+    "pain_points": [
+      "I run a tiny online store and I waste 3 hours every day answering the same customer questions. I can't afford a support team.",
+      "Every tutorial assumes I already know how to code. Nobody explains AI automation for non-technical shop owners in plain language."
+    ]
+  },
+  "demand": {
+    "signal_strength": 81,
+    "signal_count": 6,
+    "independent_sources": 3
+  },
+  "commercial": {
+    "willingness_to_pay": 75,
+    "market_gap": 85,
+    "competition_level": 30
+  },
+  "trend": {
+    "score": 80,
+    "recency_window_days": 90
+  },
+  "feasibility": {
+    "score": 77.5,
+    "rights_status": "UNKNOWN"
+  },
+  "recommended_product": {
+    "type": "affiliate",
+    "alternative": "ebook",
+    "reason": "حقوق غير مؤكدة أو استعداد دفع أقل → أفيليت أأمن (عمولة بدون إنتاج)"
+  },
+  "dimension_scores": {
+    "pain_intensity": 78.7,
+    "demand_strength": 81,
+    "willingness_to_pay": 75,
+    "market_gap": 85,
+    "trend_recency": 80,
+    "audience_specificity": 84.2,
+    "execution_feasibility": 77.5
+  },
+  "gates": {
+    "score_ok": true,
+    "evidence_ok": true,
+    "sources_ok": true,
+    "strong_evidence_ok": false,
+    "rights_ok": false,
+    "no_conflict": true
+  },
+  "clusters": [
+    {
+      "cluster": "pain",
+      "size": 1,
+      "sample_excerpt": "I run a tiny online store and I waste 3 hours every day answering the same customer questions. I can't afford a support team."
+    },
+    {
+      "cluster": "demand",
+      "size": 1,
+      "sample_excerpt": "Is there a simple guide to automate my customer replies with AI without hiring a developer? Willing to pay for something that just works."
+    },
+    {
+      "cluster": "willingness_to_pay",
+      "size": 1,
+      "sample_excerpt": "I'd happily pay $30-50 for a step-by-step ebook that shows exactly how to set up AI automation for a one-person business."
+    },
+    {
+      "cluster": "competition",
+      "size": 1,
+      "sample_excerpt": "Most existing courses on AI automation are $500+ and aimed at agencies, not solo owners. Gap for affordable beginner material."
+    },
+    {
+      "cluster": "gap",
+      "size": 1,
+      "sample_excerpt": "Every tutorial assumes I already know how to code. Nobody explains AI automation for non-technical shop owners in plain language."
+    },
+    {
+      "cluster": "trend",
+      "size": 1,
+      "sample_excerpt": "Search interest for 'AI for small business' has grown steadily over the last 90 days across multiple regions."
+    }
+  ],
+  "evidence": [
+    {
+      "source_type": "youtube_demo",
+      "source_url": "demo://youtube/comment/1",
+      "source_id": "yt_c_001",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "pain",
+      "excerpt": "I run a tiny online store and I waste 3 hours every day answering the same customer questions. I can't afford a support team.",
+      "relevance": 0.9,
+      "confidence": 0.8,
+      "evidence_grade": "D"
+    },
+    {
+      "source_type": "reddit_demo",
+      "source_url": "demo://reddit/r_smallbusiness/2",
+      "source_id": "rd_002",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "demand",
+      "excerpt": "Is there a simple guide to automate my customer replies with AI without hiring a developer? Willing to pay for something that just works.",
+      "relevance": 0.88,
+      "confidence": 0.82,
+      "evidence_grade": "D"
+    },
+    {
+      "source_type": "reddit_demo",
+      "source_url": "demo://reddit/r_entrepreneur/3",
+      "source_id": "rd_003",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "willingness_to_pay",
+      "excerpt": "I'd happily pay $30-50 for a step-by-step ebook that shows exactly how to set up AI automation for a one-person business.",
+      "relevance": 0.85,
+      "confidence": 0.8,
+      "evidence_grade": "D"
+    },
+    {
+      "source_type": "reddit_demo",
+      "source_url": "demo://web/blog/4",
+      "source_id": "web_004",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "competition",
+      "excerpt": "Most existing courses on AI automation are $500+ and aimed at agencies, not solo owners. Gap for affordable beginner material.",
+      "relevance": 0.8,
+      "confidence": 0.75,
+      "evidence_grade": "D"
+    },
+    {
+      "source_type": "youtube_demo",
+      "source_url": "demo://youtube/comment/5",
+      "source_id": "yt_c_005",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "gap",
+      "excerpt": "Every tutorial assumes I already know how to code. Nobody explains AI automation for non-technical shop owners in plain language.",
+      "relevance": 0.87,
+      "confidence": 0.78,
+      "evidence_grade": "D"
+    },
+    {
+      "source_type": "web_demo",
+      "source_url": "demo://web/trends/6",
+      "source_id": "web_006",
+      "retrieved_at": "2026-09-10T17:26:23.043049+00:00",
+      "signal_type": "trend",
+      "excerpt": "Search interest for 'AI for small business' has grown steadily over the last 90 days across multiple regions.",
+      "relevance": 0.75,
+      "confidence": 0.7,
+      "evidence_grade": "D"
+    }
+  ],
+  "evidence_summary": {
+    "grade_A": 0,
+    "grade_B": 0,
+    "grade_C": 0,
+    "grade_D": 6
+  },
+  "risks": [
+    "حقوق المحتوى غير مؤكدة (UNKNOWN) — ممنوع BUILD لإنتاج المحتوى",
+    "data_mode=SYNTHETIC_DEMO — النتيجة لا تثبت طلب سوق حقيقي (اختبار منطق فقط)"
+  ],
+  "next_action": "REVIEW_MANUAL",
+  "run_label": "RUN-20260910-2028-F0184422",
+  "executed_by": "Q (الوزير كيو) — sandbox deterministic execution",
+  "executed_at_egypt": "2026-09-10 20:28:04 +0300"
+}

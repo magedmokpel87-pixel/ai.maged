@@ -1,0 +1,96 @@
+<div dir="rtl" style="font-family: var(--font-sans); display: flex; gap: 0; min-height: 520px; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden;">
+
+  <!-- Sidebar -->
+  <div style="width: 180px; background: var(--surface-1); padding: 1rem 0.75rem; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0;">
+    <div style="display:flex; align-items:center; gap:8px; padding: 0 8px 12px; border-bottom: 0.5px solid var(--border); margin-bottom: 8px;">
+      <i class="ti ti-mood-smile" style="font-size:20px; color: var(--text-accent);" aria-hidden="true"></i>
+      <span style="font-weight:500; font-size:14px;">AI.MAGED</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); background: var(--fill-ghost-selected); font-size:13px; font-weight:500;"><i class="ti ti-layout-dashboard" style="font-size:16px;" aria-hidden="true"></i>لوحة التحكم</div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-books" style="font-size:16px;" aria-hidden="true"></i>الكتب</div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-chart-bar" style="font-size:16px;" aria-hidden="true"></i>المبيعات</div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-share" style="font-size:16px;" aria-hidden="true"></i>النشر</div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-cpu" style="font-size:16px;" aria-hidden="true"></i>الوكلاء</div>
+    <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-users" style="font-size:16px;" aria-hidden="true"></i>العملاء</div>
+    <div style="margin-top:auto; display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius: var(--radius); font-size:13px; color: var(--text-secondary);"><i class="ti ti-settings" style="font-size:16px;" aria-hidden="true"></i>الإعدادات</div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex:1; padding: 1.25rem; background: var(--surface-0); min-width: 0;">
+    <p style="font-size:16px; font-weight:500; margin: 0 0 2px;">نظرة عامة</p>
+    <p style="font-size:13px; color: var(--text-secondary); margin: 0 0 16px;">آخر تحديث: اليوم 09:40</p>
+
+    <!-- Metric cards -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:12px; margin-bottom: 20px;">
+      <div style="background: var(--surface-1); border-radius: var(--radius); padding:1rem;">
+        <p style="font-size:13px; color: var(--text-secondary); margin:0 0 6px;">كتب مكتشفة هذا الأسبوع</p>
+        <p style="font-size:24px; font-weight:500; margin:0;">18</p>
+      </div>
+      <div style="background: var(--surface-1); border-radius: var(--radius); padding:1rem;">
+        <p style="font-size:13px; color: var(--text-secondary); margin:0 0 6px;">مبيعات الأسبوع</p>
+        <p style="font-size:24px; font-weight:500; margin:0;">$412</p>
+      </div>
+      <div style="background: var(--surface-1); border-radius: var(--radius); padding:1rem;">
+        <p style="font-size:13px; color: var(--text-secondary); margin:0 0 6px;">زوار الموقع</p>
+        <p style="font-size:24px; font-weight:500; margin:0;">2,340</p>
+      </div>
+      <div style="background: var(--surface-1); border-radius: var(--radius); padding:1rem;">
+        <p style="font-size:13px; color: var(--text-secondary); margin:0 0 6px;">معدل التحويل</p>
+        <p style="font-size:24px; font-weight:500; margin:0;">3.4%</p>
+      </div>
+    </div>
+
+    <!-- Two columns: pipeline + agents -->
+    <div style="display:grid; grid-template-columns: 1.3fr 1fr; gap:16px;">
+
+      <div style="background: var(--surface-2); border: 0.5px solid var(--border); border-radius:12px; padding:1rem 1.1rem;">
+        <p style="font-size:14px; font-weight:500; margin:0 0 10px;">أحدث الكتب في المعالجة</p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:0.5px solid var(--border);">
+            <span style="font-size:13px;">فن اللامبالاة</span>
+            <span style="font-size:12px; padding:3px 10px; border-radius: var(--radius); background: var(--bg-success); color: var(--text-success);">تم النشر</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:0.5px solid var(--border);">
+            <span style="font-size:13px;">العادات الذرية</span>
+            <span style="font-size:12px; padding:3px 10px; border-radius: var(--radius); background: var(--bg-accent); color: var(--text-accent);">قيد الإعلان</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:0.5px solid var(--border);">
+            <span style="font-size:13px;">التفكير السريع والبطيء</span>
+            <span style="font-size:12px; padding:3px 10px; border-radius: var(--radius); background: var(--bg-warning); color: var(--text-warning);">تحويل لنسخة إلكترونية</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 0;">
+            <span style="font-size:13px;">قواعد العشق ٤٠</span>
+            <span style="font-size:12px; padding:3px 10px; border-radius: var(--radius); background: var(--surface-1); color: var(--text-secondary);">اكتشاف جديد</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="background: var(--surface-2); border: 0.5px solid var(--border); border-radius:12px; padding:1rem 1.1rem;">
+        <p style="font-size:14px; font-weight:500; margin:0 0 10px;">سجل نشاط الوكلاء</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <i class="ti ti-circle-check" style="font-size:15px; color: var(--text-success); margin-top:2px;" aria-hidden="true"></i>
+            <span style="font-size:12px; color: var(--text-secondary);">وكيل النشر: تم رفع 3 ريلز على فيسبوك</span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <i class="ti ti-circle-check" style="font-size:15px; color: var(--text-success); margin-top:2px;" aria-hidden="true"></i>
+            <span style="font-size:12px; color: var(--text-secondary);">وكيل البحث: رصد 4 كتب رائجة جديدة</span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <i class="ti ti-alert-triangle" style="font-size:15px; color: var(--text-warning); margin-top:2px;" aria-hidden="true"></i>
+            <span style="font-size:12px; color: var(--text-secondary);">خطأ بسيط تم اكتشافه وحله تلقائيًا</span>
+          </div>
+        </div>
+
+        <p style="font-size:14px; font-weight:500; margin:16px 0 8px;">حالة النظام</p>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="width:8px; height:8px; border-radius:50%; background: var(--fill-success);"></span>
+          <span style="font-size:12px; color: var(--text-secondary);">كل الأنظمة تعمل بشكل طبيعي</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

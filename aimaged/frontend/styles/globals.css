@@ -1,0 +1,83 @@
+:root {
+  --brand-dark: #0a1226;
+  --brand-accent: #35c7f5;
+  --brand-accent-2: #3ddc97;
+  --text-light: #eef6ff;
+}
+
+html[dir='rtl'] body {
+  font-family: 'Tajawal', 'Segoe UI', sans-serif;
+}
+html[dir='ltr'] body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--brand-dark);
+  color: var(--text-light);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header .logo { font-weight: 700; font-size: 20px; color: var(--brand-accent); }
+.header input[type="search"] {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-light);
+}
+.header nav { display: flex; gap: 12px; align-items: center; }
+.header button, .header a.button {
+  background: var(--brand-accent);
+  color: #04101f;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ad-banner {
+  margin: 16px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(53,199,245,0.12), rgba(61,220,151,0.08));
+  position: relative;
+}
+.ad-banner .ad-controls { position: absolute; top: 8px; inset-inline-end: 8px; display: flex; gap: 6px; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 16px 24px;
+}
+.product-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.product-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.product-card .body { padding: 12px; }
+
+.product-page { padding: 24px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+.product-page .gallery img { width: 100%; border-radius: 12px; margin-bottom: 8px; }
+.checkout-form { max-width: 480px; margin: 24px auto; padding: 24px; background: rgba(255,255,255,0.04); border-radius: 12px; }
+.checkout-form input { width: 100%; padding: 10px; margin-bottom: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--text-light); }

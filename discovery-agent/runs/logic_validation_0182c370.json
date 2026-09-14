@@ -1,0 +1,54 @@
+{
+  "task_id": "0182c370-1594-4014-b463-ebf371e58dc0",
+  "agent": "discovery",
+  "agent_version": "0.2.0",
+  "run_type": "logic_validation",
+  "created_at": "2026-09-09T17:27:43.238460+00:00",
+  "status": "completed",
+  "data_mode": "SYNTHETIC_DEMO",
+  "decision": "REVIEW",
+  "opportunity_score": 80.1,
+  "topic": "AI automation for small businesses",
+  "market": [
+    "global",
+    "arabic"
+  ],
+  "rights": {
+    "classification": "UNKNOWN",
+    "note": "الحقوق غير مؤكدة — ممنوع BUILD لإنتاج المحتوى؛ REVIEW أو حوّل لمسار Affiliate"
+  },
+  "product_path": "content_production",
+  "demand": {
+    "signal_strength": 81,
+    "signal_count": 6,
+    "independent_sources": 3
+  },
+  "dimension_scores": {
+    "pain_intensity": 78.7,
+    "demand_strength": 81,
+    "willingness_to_pay": 75,
+    "market_gap": 85,
+    "trend_recency": 80,
+    "audience_specificity": 84.2,
+    "execution_feasibility": 77.5
+  },
+  "gates": {
+    "score_ok": true,
+    "evidence_ok": true,
+    "sources_ok": true,
+    "strong_evidence_ok": false,
+    "rights_ok": false,
+    "no_conflict": true
+  },
+  "evidence_summary": {
+    "grade_A": 0,
+    "grade_B": 0,
+    "grade_C": 0,
+    "grade_D": 6
+  },
+  "risks": [
+    "حقوق المحتوى غير مؤكدة (UNKNOWN) — ممنوع BUILD لإنتاج المحتوى",
+    "data_mode=SYNTHETIC_DEMO — النتيجة لا تثبت طلب سوق حقيقي (اختبار منطق فقط)"
+  ],
+  "next_action": "REVIEW_MANUAL"
+}

@@ -1,0 +1,72 @@
+// AI.MAGED - Core data model
+// Run: npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String?
+  provider      String    @default("local") // local | google | facebook
+  providerId    String?
+  fullName      String?
+  role          String    @default("customer") // customer | admin | affiliate_manager
+  createdAt     DateTime  @default(now())
+  orders        Order[]
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  titleAr      String
+  titleEn      String
+  descriptionAr String  @db.Text
+  descriptionEn String  @db.Text
+  price        Decimal  @db.Decimal(10, 2)
+  currency     String   @default("USD")
+  images       String[] // high-res image URLs
+  videoUrl     String?  // reels/video showcase
+  affiliateUrl String   // purchase link (affiliate)
+  sourceApi    String?  // which affiliate network this came from
+  seoSlugAr    String?  @unique
+  seoSlugEn    String?  @unique
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  orders       OrderItem[]
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  status      String      @default("pending") // pending | confirmed | failed
+  totalAmount Decimal     @db.Decimal(10, 2)
+  createdAt   DateTime    @default(now())
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int     @default(1)
+  price     Decimal @db.Decimal(10, 2)
+}
+
+model WorkflowRun {
+  id          String   @id @default(uuid())
+  workflowName String  // e.g. "analyze-product"
+  status      String   @default("triggered") // triggered | success | failed
+  payload     Json?
+  result      Json?
+  createdAt   DateTime @default(now())
+}

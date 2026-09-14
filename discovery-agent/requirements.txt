@@ -1,0 +1,10 @@
+# AI.Maged — Discovery Agent v0.1
+# التشغيل الأساسي (الوضع الحتمي) لا يحتاج أي مكتبات خارجية — Python 3.10+ فقط.
+
+# لتفعيل الوكيل الحقيقي (Strands):
+strands-agents>=0.1.0
+
+# لمصادر حقيقية لاحقاً (اختياري في v0.1):
+# google-api-python-client   # YouTube Data API (أول Adapter)
+# praw                        # Reddit API
+# requests
