@@ -1,0 +1,55 @@
+# AI.MAGED - AI & Marketing Tools Reviews
+
+## About
+AI.MAGED provides expert reviews and honest comparisons of AI tools, marketing platforms, and productivity software. We research, test, and compare tools so you can make informed decisions.
+
+## Sitemap
+https://aimaged.com/sitemap.xml
+
+## Key Pages
+- Homepage: https://aimaged.com
+- All Tools: https://aimaged.com/tools
+- Comparisons: https://aimaged.com/compare
+- About: https://aimaged.com/about
+- Contact: https://aimaged.com/contact
+
+## Categories
+- All-in-One Marketing: https://aimaged.com/category/all-in-one-marketing
+- CRM & Automation: https://aimaged.com/category/crm-automation
+- Learning Platforms: https://aimaged.com/category/learning-platforms
+- AI Writing Tools: https://aimaged.com/category/ai-writing
+- Productivity: https://aimaged.com/category/productivity
+
+## Product Reviews
+- Systeme.io: https://aimaged.com/tools/systeme-io
+- HubSpot: https://aimaged.com/tools/hubspot
+- Coursera: https://aimaged.com/tools/coursera
+- Jasper AI: https://aimaged.com/tools/jasper-ai
+- Notion: https://aimaged.com/tools/notion
+
+## Comparisons
+- Systeme.io vs HubSpot: https://aimaged.com/compare/systeme-io-vs-hubspot
+- Best AI Writing Tools: https://aimaged.com/compare/best-ai-writing-tools
+- Best Digital Marketing Courses: https://aimaged.com/compare/best-digital-marketing-courses
+
+## Purpose
+Help users find the right tools through research-based reviews, honest assessments, and transparent affiliate disclosure.
+
+## Legal
+- Privacy Policy: https://aimaged.com/privacy
+- Terms of Service: https://aimaged.com/terms
+- Affiliate Disclosure: https://aimaged.com/affiliate-disclosure
+
+## Content Structure
+Each tool review includes:
+- What the tool is and who makes it
+- Key features and capabilities
+- Pros and cons (honest assessment)
+- Who the tool is best for
+- Affiliate commission information (transparent disclosure)
+
+Each comparison includes:
+- Side-by-side feature comparison
+- Pros and cons for each tool
+- Verdict and recommendations
+- Links to full reviews
