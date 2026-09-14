@@ -1,4 +1,12 @@
 # AI.MAGED
+> **For the Agents for Humans Hackathon**, the core AI agent lives in
+> [`discovery-agent/`](./discovery-agent) — a Strands Agents SDK agent
+> (AWS Bedrock AgentCore) that discovers, verifies rights for, and scores
+> book publishing opportunities. Run it with:
+> `python discovery-agent/golden_run.py`
+>
+> The site described below is a separate, earlier part of the same
+> AI.MAGED platform.
 
 Affiliate marketing website for AI tools and marketing software.
 
