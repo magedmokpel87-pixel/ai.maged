@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import JsonLd from "@/components/JsonLd";
+import AmplifyClientProvider from "@/components/AmplifyClientProvider";
+import { loadAmplifyOutputs } from "@/lib/amplify-outputs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,6 +55,8 @@ export const metadata: Metadata = {
   },
 };
 
+const amplifyOutputs = loadAmplifyOutputs();
+
 export default function RootLayout({
   children,
 }: {
@@ -79,11 +83,13 @@ export default function RootLayout({
             description: "Discover and compare the best AI tools, marketing platforms, and productivity software.",
           }}
         />
-        <LanguageProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <AmplifyClientProvider outputs={amplifyOutputs}>
+          <LanguageProvider>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </AmplifyClientProvider>
       </body>
     </html>
   );
