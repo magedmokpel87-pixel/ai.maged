@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { listPublishedBooks } from "@/lib/books";
+import { listActiveAds, listPublishedBooks } from "@/lib/books";
 import BookCover from "@/components/BookCover";
+import AdBanner from "@/components/AdBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const books = await listPublishedBooks();
+  const [books, ads] = await Promise.all([listPublishedBooks(), listActiveAds()]);
   const featured = books.filter((book) => book.featured).slice(0, 6);
   const showcase = featured.length ? featured : books.slice(0, 6);
 
@@ -41,6 +42,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <AdBanner ads={ads} />
 
       <section className="py-16 bg-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
