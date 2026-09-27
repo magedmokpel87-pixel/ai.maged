@@ -44,12 +44,21 @@ const schema = a.schema({
     .model({
       slug: a.string().required(),
       title: a.string().required(),
+      subtitle: a.string(),
       author: a.string(),
+      category: a.string(),
+      language: a.string(),
       description: a.string(),
+      tags: a.string().array(),
+      isbn: a.string(),
+      publicationYear: a.integer(),
+      format: a.string(),
       coverKey: a.string(),
       fileKey: a.string(),
-      visibility: a.enum(["public", "private"]),
+      externalUrl: a.string(),
+      visibility: a.string().default("public"),
       published: a.boolean().default(false),
+      featured: a.boolean().default(false),
       sortOrder: a.integer().default(0),
     })
     .authorization((allow) => [
