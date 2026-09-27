@@ -21,10 +21,10 @@ export default function Header() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="/books" className="text-gray-300 hover:text-white transition-colors">Books</Link>
-            <Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link>
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors">{tr("nav.home")}</Link>
+            <Link href="/books" className="text-gray-300 hover:text-white transition-colors">{tr("nav.books")}</Link>
+            <Link href="/about" className="text-gray-300 hover:text-white transition-colors">{tr("nav.about")}</Link>
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">{tr("nav.contact")}</Link>
             <LanguageToggle />
           </div>
 
@@ -47,10 +47,10 @@ export default function Header() {
 
         {mobileMenuOpen && (
           <div className="md:hidden pb-4 border-t border-white/5">
-            <Link href="/" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-            <Link href="/books" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Books</Link>
-            <Link href="/about" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>About</Link>
-            <Link href="/contact" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+            <Link href="/" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>{tr("nav.home")}</Link>
+            <Link href="/books" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>{tr("nav.books")}</Link>
+            <Link href="/about" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>{tr("nav.about")}</Link>
+            <Link href="/contact" className="block py-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>{tr("nav.contact")}</Link>
           </div>
         )}
       </nav>
