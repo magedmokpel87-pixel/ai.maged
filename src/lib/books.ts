@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { generateServerClientUsingCookies } from "@aws-amplify/adapter-nextjs/data";
-import type { Schema } from "@/../amplify/data/resource";
+import type { Schema } from "../../amplify/data/resource";
 import { loadAmplifyOutputs } from "@/lib/amplify-outputs";
 
 export async function listPublishedBooks() {
