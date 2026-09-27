@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { Schema } from "@/amplify/data/resource";
+import type { Schema } from "../../amplify/data/resource";
 import BookCover from "@/components/BookCover";
 
 export default function BookExplorer({ books }: { books: Schema["Book"]["type"][] }) {
