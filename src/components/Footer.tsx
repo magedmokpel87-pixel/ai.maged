@@ -42,12 +42,12 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-3">{tr("footer.resources")}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/tools" className="hover:text-white transition-colors">
+                <Link href="/books" className="hover:text-white transition-colors">
                   {tr("footer.allTools")}
                 </Link>
               </li>
               <li>
-                <Link href="/compare" className="hover:text-white transition-colors">
+                <Link href="/books" className="hover:text-white transition-colors">
                   {tr("footer.comparisons")}
                 </Link>
               </li>
