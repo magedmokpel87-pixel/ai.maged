@@ -1,55 +1,37 @@
-# AI.MAGED - AI & Marketing Tools Reviews
+# AI.MAGED — Curated Books
 
 ## About
-AI.MAGED provides expert reviews and honest comparisons of AI tools, marketing platforms, and productivity software. We research, test, and compare tools so you can make informed decisions.
+AI.MAGED is a focused library of carefully selected books across subjects, genres, languages, and formats. Books are added deliberately and are never published automatically.
 
 ## Sitemap
 https://aimaged.com/sitemap.xml
 
 ## Key Pages
 - Homepage: https://aimaged.com
-- All Tools: https://aimaged.com/tools
-- Comparisons: https://aimaged.com/compare
+- Books: https://aimaged.com/books
 - About: https://aimaged.com/about
 - Contact: https://aimaged.com/contact
 
-## Categories
-- All-in-One Marketing: https://aimaged.com/category/all-in-one-marketing
-- CRM & Automation: https://aimaged.com/category/crm-automation
-- Learning Platforms: https://aimaged.com/category/learning-platforms
-- AI Writing Tools: https://aimaged.com/category/ai-writing
-- Productivity: https://aimaged.com/category/productivity
+## Content Model
+Every public book can include:
+- Title and subtitle
+- Author
+- Subject or category
+- Language
+- Description
+- Tags
+- Publication year
+- ISBN
+- Format
+- A public book link or public file when the owner explicitly enables it
 
-## Product Reviews
-- Systeme.io: https://aimaged.com/tools/systeme-io
-- HubSpot: https://aimaged.com/tools/hubspot
-- Coursera: https://aimaged.com/tools/coursera
-- Jasper AI: https://aimaged.com/tools/jasper-ai
-- Notion: https://aimaged.com/tools/notion
+## Editorial Rule
+Only books selected and explicitly published by the site owner appear in the public library. No random or automatic book uploads are used.
 
-## Comparisons
-- Systeme.io vs HubSpot: https://aimaged.com/compare/systeme-io-vs-hubspot
-- Best AI Writing Tools: https://aimaged.com/compare/best-ai-writing-tools
-- Best Digital Marketing Courses: https://aimaged.com/compare/best-digital-marketing-courses
-
-## Purpose
-Help users find the right tools through research-based reviews, honest assessments, and transparent affiliate disclosure.
+## Future
+The platform is designed to support additional content such as courses later without changing the core public experience.
 
 ## Legal
 - Privacy Policy: https://aimaged.com/privacy
 - Terms of Service: https://aimaged.com/terms
 - Affiliate Disclosure: https://aimaged.com/affiliate-disclosure
-
-## Content Structure
-Each tool review includes:
-- What the tool is and who makes it
-- Key features and capabilities
-- Pros and cons (honest assessment)
-- Who the tool is best for
-- Affiliate commission information (transparent disclosure)
-
-Each comparison includes:
-- Side-by-side feature comparison
-- Pros and cons for each tool
-- Verdict and recommendations
-- Links to full reviews

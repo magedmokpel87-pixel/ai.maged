@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import JsonLd from "@/components/JsonLd";
+import AmplifyClientProvider from "@/components/AmplifyClientProvider";
+import { loadAmplifyOutputs } from "@/lib/amplify-outputs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,12 +26,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aimaged.com"),
   title: {
-    default: "AI.MAGED — Find the Right AI & Marketing Tools",
+    default: "AI.MAGED — Curated Books Worth Your Time",
     template: "%s | AI.MAGED",
   },
   description:
-    "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
-  keywords: ["AI tools", "marketing tools", "software reviews", "tool comparison", "productivity"],
+    "Discover a focused library of carefully selected books across every subject, language, and genre.",
+  keywords: ["books", "book recommendations", "curated books", "reading", "AI.MAGED"],
   applicationName: "AI.MAGED",
   alternates: {
     canonical: "https://aimaged.com",
@@ -53,6 +55,8 @@ export const metadata: Metadata = {
   },
 };
 
+const amplifyOutputs = loadAmplifyOutputs();
+
 export default function RootLayout({
   children,
 }: {
@@ -67,7 +71,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: "AI.MAGED",
             url: "https://aimaged.com",
-            description: "Expert reviews and comparisons of AI and marketing tools.",
+            description: "A curated library of selected books across many subjects and genres.",
           }}
         />
         <JsonLd
@@ -76,14 +80,16 @@ export default function RootLayout({
             "@type": "WebSite",
             name: "AI.MAGED",
             url: "https://aimaged.com",
-            description: "Discover and compare the best AI tools, marketing platforms, and productivity software.",
+            description: "Discover a curated library of selected books across many subjects and genres.",
           }}
         />
-        <LanguageProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <AmplifyClientProvider outputs={amplifyOutputs}>
+          <LanguageProvider>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </AmplifyClientProvider>
       </body>
     </html>
   );
