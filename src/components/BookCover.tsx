@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getUrl } from "aws-amplify/storage";
-import type { Schema } from "@/amplify/data/resource";
+import type { Schema } from "../../amplify/data/resource";
 
 export default function BookCover({
   book,
