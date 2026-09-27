@@ -23,6 +23,22 @@ export async function listPublishedBooks() {
   }
 }
 
+export async function listActiveAds() {
+  const config = loadAmplifyOutputs();
+  if (!config) return [] as Schema["Ad"]["type"][];
+
+  try {
+    const client = generateServerClientUsingCookies<Schema>({ config: config as never, cookies });
+    const { data, errors } = await client.models.Ad.list({ authMode: "apiKey" });
+    if (errors?.length) return [] as Schema["Ad"]["type"][];
+    return ((data ?? []) as Schema["Ad"]["type"][])
+      .filter((ad) => Boolean(ad.active))
+      .sort((a, b) => Number(a.sortOrder ?? 0) - Number(b.sortOrder ?? 0));
+  } catch {
+    return [] as Schema["Ad"]["type"][];
+  }
+}
+
 export async function getPublishedBook(slug: string) {
   const books = await listPublishedBooks();
   return books.find((book) => book.slug === slug);
