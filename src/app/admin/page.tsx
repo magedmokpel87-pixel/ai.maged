@@ -145,7 +145,6 @@ export default function AdminPage() {
           name: category.name,
           description: category.description,
           icon: category.icon,
-          productCount: undefined,
           sortOrder: 0,
           published: true,
         } as never);
