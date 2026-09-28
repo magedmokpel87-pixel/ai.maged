@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+.next/
+out/
+dist/
+
+# User uploads (stored on host, backed up separately)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs & local DB
+*.log
+pgdata/

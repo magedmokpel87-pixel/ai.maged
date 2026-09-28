@@ -1,0 +1,104 @@
+// AI.MAGED - Core data model
+// Run: npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String?
+  provider      String    @default("local") // local | google | facebook
+  providerId    String?
+  fullName      String?
+  role          String    @default("customer") // customer | admin | affiliate_manager
+  createdAt     DateTime  @default(now())
+  orders        Order[]
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  kind         String   @default("book") // book | course | product
+  titleAr      String
+  titleEn      String
+  descriptionAr String  @db.Text
+  descriptionEn String  @db.Text
+  price        Decimal  @db.Decimal(10, 2)
+  currency     String   @default("USD")
+  images       String[] // cover + gallery (uploaded URLs or remote)
+  videoUrl     String?  // reels/video showcase
+  affiliateUrl String?  // external purchase link (affiliate)
+  sourceApi    String?  // which affiliate network this came from
+  seoSlugAr    String?  @unique
+  seoSlugEn    String?  @unique
+  featured     Boolean  @default(false)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  orders       OrderItem[]
+}
+
+// Editable ad slots shown on public pages (managed from the admin dashboard)
+model Ad {
+  id        String    @id @default(uuid())
+  titleAr   String
+  titleEn   String
+  bodyAr    String    @default("")
+  bodyEn    String    @default("")
+  imageUrl  String?
+  linkUrl   String?
+  placement String    @default("home_top") // home_top | home_bottom | product_page
+  sortOrder Int       @default(0)
+  active    Boolean   @default(true)
+  startsAt  DateTime?
+  endsAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Free-form page copy so texts can change without touching code
+model PageContent {
+  id        String   @id @default(uuid())
+  key       String   // "home" | "about" | "footer" ...
+  locale    String   // ar | en
+  title     String
+  body      Json     // { sectionKey: text }
+  updatedAt DateTime @updatedAt
+
+  @@unique([key, locale])
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  status      String      @default("pending") // pending | confirmed | failed
+  totalAmount Decimal     @db.Decimal(10, 2)
+  createdAt   DateTime    @default(now())
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int     @default(1)
+  price     Decimal @db.Decimal(10, 2)
+}
+
+model WorkflowRun {
+  id          String   @id @default(uuid())
+  workflowName String  // e.g. "analyze-product"
+  status      String   @default("triggered") // triggered | success | failed
+  payload     Json?
+  result      Json?
+  createdAt   DateTime @default(now())
+}
