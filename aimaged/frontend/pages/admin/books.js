@@ -148,6 +148,7 @@ export default function AdminBooks() {
               <td>{p.price} {p.currency}</td>
               <td>{p.active ? 'نشط' : 'متوقف'}</td>
               <td className="row-actions">
+                <a className="view-link" href={`/product/${p.id}`} target="_blank" rel="noreferrer">عرض ↗</a>
                 <button onClick={() => edit(p)}>تعديل</button>
                 <button onClick={() => toggleActive(p)}>{p.active ? 'إيقاف' : 'تفعيل'}</button>
                 <button className="danger" onClick={() => remove(p)}>حذف</button>

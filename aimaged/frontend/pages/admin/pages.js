@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import AdminLayout from '../../components/AdminLayout';
 import { api } from '../../lib/api';
 
 export default function AdminPages() {
+  const router = useRouter();
   const [key, setKey] = useState('home');
   const [locale, setLocale] = useState('ar');
   const [title, setTitle] = useState('');
   const [rows, setRows] = useState([]);
   const [msg, setMsg] = useState('');
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (router.query.key) setKey(String(router.query.key));
+      if (router.query.locale) setLocale(String(router.query.locale));
+    }
+  }, [router.isReady]);
 
   async function loadPage() {
     setLoaded(false);
@@ -69,6 +78,7 @@ export default function AdminPages() {
         <div className="actions">
           <button type="button" className="ghost" onClick={() => setRows((rs) => [...rs, { k: '', v: '' }])}>+ قسم جديد</button>
           <button type="submit">حفظ / Save</button>
+          <a className="ghost link-btn" href={locale === 'en' ? '/en' : '/'} target="_blank" rel="noreferrer">معاينة على الموقع ↗</a>
           {msg && <span className="msg">{msg}</span>}
         </div>
       </form>

@@ -91,6 +91,7 @@ export default function AdminAds() {
               <td>{a.sortOrder}</td>
               <td>{a.active ? 'نشط' : 'متوقف'}</td>
               <td className="row-actions">
+                <a className="view-link" href="/" target="_blank" rel="noreferrer">عرض ↗</a>
                 <button onClick={() => edit(a)}>تعديل</button>
                 <button onClick={() => toggle(a)}>{a.active ? 'إيقاف' : 'تفعيل'}</button>
                 <button className="danger" onClick={() => remove(a)}>حذف</button>

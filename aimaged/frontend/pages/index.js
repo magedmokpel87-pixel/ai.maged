@@ -3,9 +3,11 @@ import axios from 'axios';
 import Link from 'next/link';
 import Header from '../components/Header';
 import AdBanner from '../components/AdBanner';
+import AdminBar from '../components/AdminBar';
+import Seo from '../components/Seo';
 import ar from '../locales/ar.json';
 import en from '../locales/en.json';
-import { SERVER_API_BASE, absUrl } from '../lib/api';
+import { SERVER_API_BASE, API_BASE, absUrl } from '../lib/api';
 
 async function fetchJson(url, params) {
   try {
@@ -43,8 +45,24 @@ export default function Home({ products, topAds, bottomAds, home }) {
   const heroTitle = body.hero_title || (lang === 'en' ? 'Books & knowledge by AI' : 'كتب ومعرفة بالذكاء الاصطناعي');
   const heroSub = body.hero_subtitle || (lang === 'en' ? 'Curated books and courses on AI.MAGED.' : 'كتب ودورات مختارة من AI.MAGED.');
 
+  const seoTitle = home?.title ? `${home.title} — AI.MAGED` : `${heroTitle} — AI.MAGED`;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'AI.MAGED',
+    url: API_BASE,
+    inLanguage: lang === 'en' ? 'en' : 'ar',
+    potentialAction: {
+      '@type': 'SearchAction',
+      Target: `${API_BASE}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <div>
+      <Seo title={seoTitle} description={heroSub} jsonLd={jsonLd} />
+      <AdminBar pageKey="home" />
       <Header />
       {topAds.map((ad) => (
         <AdBanner key={ad.id} ad={ad} lang={lang} />

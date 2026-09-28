@@ -2,10 +2,12 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../../components/Header';
+import Seo from '../../components/Seo';
+import AdminBar from '../../components/AdminBar';
+import { API_BASE, absUrl } from '../../lib/api';
 import ar from '../../locales/ar.json';
 import en from '../../locales/en.json';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:4000';
 
 export default function ProductPage() {
   const router = useRouter();
@@ -22,9 +24,34 @@ export default function ProductPage() {
 
   const title = router.locale === 'en' ? product.titleEn : product.titleAr;
   const description = router.locale === 'en' ? product.descriptionEn : product.descriptionAr;
+  const cover = product.images && product.images[0] ? absUrl(product.images[0]) : null;
+  const pageUrl = `${API_BASE}${router.asPath.split('?')[0]}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': product.kind === 'course' ? 'Course' : 'Book',
+    name: title,
+    description,
+    image: cover || undefined,
+    inLanguage: router.locale === 'en' ? 'en' : 'ar',
+    offers: {
+      '@type': 'Offer',
+      price: Number(product.price),
+      priceCurrency: product.currency,
+      url: pageUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  };
 
   return (
     <div>
+      <Seo
+        title={`${title} — AI.MAGED`}
+        description={(description || '').slice(0, 160)}
+        image={cover || undefined}
+        jsonLd={jsonLd}
+      />
+      <AdminBar />
       <Header />
       <div className="product-page">
         <div className="gallery">
