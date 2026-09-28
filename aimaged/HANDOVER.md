@@ -6,7 +6,42 @@
 
 ---
 
-## 1) ملخّص ما تم إنجازه في هذه الجولة
+## 0) النشر الإنتاجي الحالي (مباشر على الإنترنت) — 2026-09-28
+
+**الموقع حيّ الآن:** `http://51.21.195.43` (عربي) و `http://51.21.195.43/en` (إنجليزي) — لوحة التحكم: `http://51.21.195.43/admin/login`
+
+| البند | القيمة |
+|---|---|
+| الخادم | AWS EC2 `i-03f969bb3690b8df4` (m7i-flex.large) — منطقة ستوكهولم eu-north-1 — Ubuntu 26.04 |
+| IP عام | `51.21.195.43` |
+| SSH | `ssh -i "C:\Users\shams\Desktop\amazon server\1OpenClaw-Key.pem" ubuntu@51.21.195.43` |
+| كود الإنتاج | على الخادم في `~/aimaged` (نفس كود هذا المجلد) |
+| ملف أسرار الإنتاج | `~/aimaged/.env` على الخادم (تم إنشاؤه بأسرار جديدة قوية — ليس نسخة الـenv القديمة) |
+| تشغيل | `cd ~/aimaged && docker compose -f docker-compose.prod.yml up -d` (Postgres + Backend + Frontend + nginx) |
+| البيانات | داخل Docker volumes: `aimaged_pgdata` (قاعدة البيانات) و `aimaged_uploads` (الملفات المرفوعة) — تبقى حتى بعد إعادة البناء |
+| منفذ 80 | فُتح في Security Group الخاص بالسرفر (إضافة فقط — لم يُمسّ أي قاعدة قديمة) |
+| مشاريع أخرى على نفس السرفر | n8n (:5678) و ollama (:11434) و OpenClaw gateway (:18789) — لم تُمس، والمنصة الجديدة لا تتعارض معها |
+| GitHub | فرع `release/ec2-cms` فيه الكود الكامل بدون أسرار؛ فرع `main` أُزيلت منه ملفات `.env` من التتبع (لكن الأسرار القديمة ما زالت في التاريخ — **يجب تغييرها**، قسم 5) |
+| SEO | robots.txt + sitemap.xml ديناميكي + Meta/OG/hreflang + JSON-LD (WebSite/Book) — كلها تعمل على الموقع الحيّ |
+
+**معادلة إعادة النشر بعد أي تعديل (من جهازك، من داخل مجلد `aimaged/`):**
+```bash
+tar czf /tmp/aimaged-src.tgz --exclude=node_modules --exclude=.next --exclude=backend/uploads --exclude=backend/.env --exclude=frontend/.env.local .
+cat /tmp/aimaged-src.tgz | ssh -i "C:\Users\shams\Desktop\amazon server\1OpenClaw-Key.pem" ubuntu@51.21.195.43 'tar xzf - -C ~/aimaged && cd ~/aimaged && docker compose -f docker-compose.prod.yml build && docker compose -f docker-compose.prod.yml up -d'
+# لو أضفت migration جديدًا:
+# ssh ... 'cd ~/aimaged && docker compose -f docker-compose.prod.yml exec -T backend npx prisma migrate deploy'
+```
+
+**نسخة احتياطية يومية مقترحة (على الخادم):**
+```bash
+docker exec aimaged-postgres-1 pg_dump -U aimaged aimaged > ~/backup-$(date +%F).sql
+```
+
+**لدخول لوحة التحكم حاليًا:** `Majed@domain.com` / `u9JV9KALVSbUjeY26d` — غيّرها من داخل اللوحة فورًا واطلب استبدال البريد ببريدك الحقيقي (عن طريق إعادة تشغيل الـseed أو تعديل جدول User).
+
+**الباقي للوصول لجوجل:** شراء/ربط دومين → A Record على `51.21.195.43` → تفعيل HTTPS (certbot) → تحديث `PUBLIC_URL` في `~/aimaged/.env` وإعادة بناء الـfrontend → تسجيل في Google Search Console وإرسال `sitemap.xml`. (الموقع حاليًا على IP بدون دومين، وجوجل لا يفهرس IPs بشكل عملي.)
+
+---
 
 موقع + قاعدة بيانات + **لوحة تحكم كاملة** لإدارة المحتوى والكتب والإعلانات، والتغييرات من اللوحة تظهر **مباشرة** على الموقع بدون تعديل كود.
 
