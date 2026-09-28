@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI.MAGED — Find the Right AI & Marketing Tools",
-    description: "Discover and compare the best AI tools, marketing platforms, and productivity software. Expert reviews, honest comparisons, and the right tool for your needs.",
+    title: "AI.MAGED — Curated Books Worth Your Time",
+    description: "Discover a focused library of carefully selected books across every subject, language, and genre.",
   },
   robots: {
     index: true,
