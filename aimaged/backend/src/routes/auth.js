@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { z } = require('zod');
 const prisma = require('../config/db');
+const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -53,6 +54,30 @@ router.post('/login', async (req, res, next) => {
     if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
 
     res.json({ token: signToken(user), user: publicUser(user) });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST /api/auth/change-password  (requires login)
+router.post('/change-password', requireAuth, async (req, res, next) => {
+  try {
+    const schema = z.object({
+      currentPassword: z.string().min(8),
+      newPassword: z.string().min(8),
+    });
+    const { currentPassword, newPassword } = schema.parse(req.body);
+
+    const user = await prisma.user.findUnique({ where: { id: req.user.sub } });
+    if (!user || !user.passwordHash) return res.status(400).json({ error: 'This account has no password (social login)' });
+
+    const valid = await bcrypt.compare(currentPassword, user.passwordHash);
+    if (!valid) return res.status(401).json({ error: 'Current password is incorrect' });
+
+    const passwordHash = await bcrypt.hash(newPassword, 10);
+    await prisma.user.update({ where: { id: user.id }, data: { passwordHash } });
+
+    res.json({ ok: true });
   } catch (err) {
     next(err);
   }

@@ -16,7 +16,7 @@ export default function AdminHome() {
   }, []);
 
   return (
-    <AdminLayout title="لوحة التحكم / Dashboard">
+    <AdminLayout title="نظرة عامة / Overview">
       <div className="stat-row">
         <div className="stat-card"><b>{stats.books}</b><span>كتب / Books</span></div>
         <div className="stat-card"><b>{stats.ads}</b><span>إعلانات / Ads</span></div>
@@ -27,9 +27,13 @@ export default function AdminHome() {
         <Link href="/admin/books" className="stat-card quick">＋ إضافة كتاب</Link>
         <Link href="/admin/ads" className="stat-card quick">＋ إضافة إعلان</Link>
         <Link href="/admin/pages?key=home&locale=ar" className="stat-card quick">✎ تعديل نصوص الرئيسية</Link>
+        <Link href="/admin/settings" className="stat-card quick">⚙ تغيير كلمة السر</Link>
         <a href="/" target="_blank" rel="noreferrer" className="stat-card quick">↗ معاينة الموقع</a>
       </div>
-      <p>كل التعديلات من هذه اللوحة تظهر مباشرة على الموقع بدون تعديل كود. وعند دخولك للموقع بنفس المتصفح وأنت مدير، تظهر لك شريط «وضع المدير» أسفل الموقع فيه زر تعديل مباشر لنصوص أي صفحة.</p>
+      <div className="admin-card">
+        <h2>كيف تعمل اللوحة؟</h2>
+        <p className="muted">كل التعديلات من هذه اللوحة تظهر مباشرة على الموقع بدون تعديل كود. وعند دخولك للموقع بنفس المتصفح وأنت مدير، تظهر لك شريط «وضع المدير» أسفل الموقع فيه زر تعديل مباشر لنصوص أي صفحة.</p>
+      </div>
     </AdminLayout>
   );
 }

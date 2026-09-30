@@ -137,6 +137,7 @@ export default function AdminBooks() {
         </div>
       </form>
 
+      <div className="table-wrap">
       <table className="admin-table">
         <thead><tr><th>الغلاف</th><th>العنوان</th><th>النوع</th><th>السعر</th><th>الحالة</th><th></th></tr></thead>
         <tbody>
@@ -158,6 +159,7 @@ export default function AdminBooks() {
           {items.length === 0 && <tr><td colSpan={6}>لا توجد كتب بعد</td></tr>}
         </tbody>
       </table>
+      </div>
     </AdminLayout>
   );
 }

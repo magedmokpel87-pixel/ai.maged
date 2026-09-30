@@ -81,6 +81,7 @@ export default function AdminAds() {
         </div>
       </form>
 
+      <div className="table-wrap">
       <table className="admin-table">
         <thead><tr><th>العنوان</th><th>الموضع</th><th>الترتيب</th><th>الحالة</th><th></th></tr></thead>
         <tbody>
@@ -101,6 +102,7 @@ export default function AdminAds() {
           {items.length === 0 && <tr><td colSpan={5}>لا توجد إعلانات</td></tr>}
         </tbody>
       </table>
+      </div>
     </AdminLayout>
   );
 }

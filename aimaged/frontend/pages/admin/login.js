@@ -32,7 +32,10 @@ export default function AdminLogin() {
   return (
     <div className="login-wrap">
       <form className="login-card" onSubmit={submit}>
-        <h1>AI.MAGED — دخول المدير</h1>
+        <div className="login-brand">
+          <img src="/logo.png" alt="AI.MAGED" width={120} height={120} />
+        </div>
+        <h1>دخول المدير / Admin Login</h1>
         <label>البريد / Email</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label>كلمة المرور / Password</label>
