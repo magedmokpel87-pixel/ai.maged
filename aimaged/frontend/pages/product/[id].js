@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../../components/Header';
 import Seo from '../../components/Seo';
-import AdminBar from '../../components/AdminBar';
 import { API_BASE, absUrl } from '../../lib/api';
 import ar from '../../locales/ar.json';
 import en from '../../locales/en.json';
@@ -51,7 +50,6 @@ export default function ProductPage() {
         image={cover || undefined}
         jsonLd={jsonLd}
       />
-      <AdminBar />
       <Header />
       <div className="product-page">
         <div className="gallery">

@@ -30,8 +30,7 @@ body {
   flex-wrap: wrap;
 }
 
-.header .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 20px; color: var(--brand-accent); text-decoration: none; }
-.header .logo img { border-radius: 8px; }
+.header .logo { font-weight: 700; font-size: 20px; color: var(--brand-accent); }
 .header input[type="search"] {
   flex: 1;
   min-width: 160px;

@@ -33,7 +33,7 @@ export default function AdminLogin() {
     <div className="login-wrap">
       <form className="login-card" onSubmit={submit}>
         <div className="login-brand">
-          <img src="/logo.png" alt="AI.MAGED" width={120} height={120} />
+          <img src="/logo-mark.png" alt="AI.MAGED" width={96} height={96} />
         </div>
         <h1>دخول المدير / Admin Login</h1>
         <label>البريد / Email</label>

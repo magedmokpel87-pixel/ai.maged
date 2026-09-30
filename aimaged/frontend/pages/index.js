@@ -3,7 +3,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import Header from '../components/Header';
 import AdBanner from '../components/AdBanner';
-import AdminBar from '../components/AdminBar';
 import Seo from '../components/Seo';
 import ar from '../locales/ar.json';
 import en from '../locales/en.json';
@@ -62,7 +61,6 @@ export default function Home({ products, topAds, bottomAds, home }) {
   return (
     <div>
       <Seo title={seoTitle} description={heroSub} jsonLd={jsonLd} />
-      <AdminBar pageKey="home" />
       <Header />
       {topAds.map((ad) => (
         <AdBanner key={ad.id} ad={ad} lang={lang} />

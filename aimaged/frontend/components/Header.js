@@ -18,10 +18,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Link href="/" className="logo">
-        <img src="/logo-mark.png" alt="AI.MAGED" width={34} height={34} />
-        <span>AI.MAGED</span>
-      </Link>
+      <Link href="/" className="logo">AI.MAGED</Link>
       <input type="search" placeholder={t.search_placeholder} />
       <nav>
         {admin && <Link href="/admin" className="button admin-link">لوحة التحكم</Link>}
