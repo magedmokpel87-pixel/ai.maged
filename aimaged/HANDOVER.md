@@ -44,7 +44,7 @@ docker exec aimaged-postgres-1 pg_dump -U aimaged aimaged > ~/backup-$(date +%F)
 
 **لدخول لوحة التحكم حاليًا:** `Majed@domain.com` / `u9JV9KALVSbUjeY26d` — غيّرها من داخل اللوحة فورًا واطلب استبدال البريد ببريدك الحقيقي (عن طريق إعادة تشغيل الـseed أو تعديل جدول User).
 
-**الباقي للوصول لجوجل:** بقي خطوة واحدة: تسجيل `https://aimaged.com` في Google Search Console وإرسال `sitemap.xml` (يحتاج دخولك بحساب جوجل magedmokpel87@gmail.com في المتصفح — التحقق سيكون عبر DNS TXT من Route 53 وهو جاهز خلال دقائق). الدومين وHTTPS وPUBLIC_URL كلها تمّت وفُحصت من الخارج.
+**جوجل — تم ✅ (2026-09-30):** الموقع مُسجَّل في Google Search Console كـ"Domain property" لـ `aimaged.com` تحت حسابك magedmokpel87@gmail.com، والتحقق تم تلقائيًا عبر DNS (سجل TXT `google-site-verification=...` مضاف في Route 53 — **لا تحذفه** وإلا يفقد التحقق)، و`sitemap.xml` أُرسل واستُقبل بنجاح. جوجل يبدأ الفهرسة تدريجيًا (أيام إلى أسابيع). ستصلك التقارير على Search Console.
 
 ---
 
