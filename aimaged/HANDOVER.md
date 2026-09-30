@@ -6,23 +6,28 @@
 
 ---
 
-## 0) النشر الإنتاجي الحالي (مباشر على الإنترنت) — 2026-09-28
+## 0) النشر الإنتاجي الحالي (مباشر على الإنترنت) — مُحدَّث 2026-09-30
 
-**الموقع حيّ الآن:** `http://51.21.195.43` (عربي) و `http://51.21.195.43/en` (إنجليزي) — لوحة التحكم: `http://51.21.195.43/admin/login`
+**الموقع حيّ الآن:** `https://aimaged.com` (عربي) و `https://aimaged.com/en` (إنجليزي) — لوحة التحكم: `https://aimaged.com/admin/login`
+(Redirect تلقائي من `http://` ومن IP القديم `51.21.195.43` ما زال يعمل أيضًا.)
 
 | البند | القيمة |
 |---|---|
+| الدومين | **`aimaged.com`** — مسجَّل باسمك عبر AWS Route 53 في 2026-09-30 (16$/سنة، التجديد التلقائي mفعّل، ينتهي 2027-09-30، حماية الخصوصية mفعّلة). بيانات المسجِّل: Majed Mokpel / magedmokpel87@gmail.com / ‎+20 1228951330 / القاهرة |
+| DNS | Hosted Zone في Route 53 برمز `Z05744112LZTBRD2FCPC` — سجلّا A: `aimaged.com` و `www.aimaged.com` → `51.21.195.43` |
+| HTTPS | شهادة Let's Encrypt حيّة (تنتهي 2026-12-29 وتُجدَّد تلقائيًا عبر cron على الخادم). الشهادة داخل volume `aimaged_certbot_conf`، والمسار `/etc/letsencrypt/live/aimaged.com/` |
 | الخادم | AWS EC2 `i-03f969bb3690b8df4` (m7i-flex.large) — منطقة ستوكهولم eu-north-1 — Ubuntu 26.04 |
 | IP عام | `51.21.195.43` |
 | SSH | `ssh -i "C:\Users\shams\Desktop\amazon server\1OpenClaw-Key.pem" ubuntu@51.21.195.43` |
 | كود الإنتاج | على الخادم في `~/aimaged` (نفس كود هذا المجلد) |
-| ملف أسرار الإنتاج | `~/aimaged/.env` على الخادم (تم إنشاؤه بأسرار جديدة قوية — ليس نسخة الـenv القديمة) |
+| ملف أسرار الإنتاج | `~/aimaged/.env` على الخادم (تم إنشاؤه بأسرار جديدة قوية — ليس نسخة الـenv القديمة). `PUBLIC_URL=https://aimaged.com` |
 | تشغيل | `cd ~/aimaged && docker compose -f docker-compose.prod.yml up -d` (Postgres + Backend + Frontend + nginx) |
+| nginx | `deploy/nginx.conf` (نسخة HTTPS في هذا المجلد = نفس الملف على الخادم): 80 يحوّل لـ443، و443 يوزّع `/api/` و`/uploads/` على الـbackend و الباقي على الـfrontend |
 | البيانات | داخل Docker volumes: `aimaged_pgdata` (قاعدة البيانات) و `aimaged_uploads` (الملفات المرفوعة) — تبقى حتى بعد إعادة البناء |
-| منفذ 80 | فُتح في Security Group الخاص بالسرفر (إضافة فقط — لم يُمسّ أي قاعدة قديمة) |
+| المنافذ | 80 و 443 مفتوحان في Security Group (`launch-wizard-1`) — إضافة فقط — لم يُمسّ أي قاعدة قديمة |
 | مشاريع أخرى على نفس السرفر | n8n (:5678) و ollama (:11434) و OpenClaw gateway (:18789) — لم تُمس، والمنصة الجديدة لا تتعارض معها |
 | GitHub | فرع `release/ec2-cms` فيه الكود الكامل بدون أسرار؛ فرع `main` أُزيلت منه ملفات `.env` من التتبع (لكن الأسرار القديمة ما زالت في التاريخ — **يجب تغييرها**، قسم 5) |
-| SEO | robots.txt + sitemap.xml ديناميكي + Meta/OG/hreflang + JSON-LD (WebSite/Book) — كلها تعمل على الموقع الحيّ |
+| SEO | robots.txt + sitemap.xml ديناميكي + Meta/OG/hreflang + JSON-LD (WebSite/Book) — كلها تعمل على `https://aimaged.com` |
 
 **معادلة إعادة النشر بعد أي تعديل (من جهازك، من داخل مجلد `aimaged/`):**
 ```bash
@@ -39,7 +44,7 @@ docker exec aimaged-postgres-1 pg_dump -U aimaged aimaged > ~/backup-$(date +%F)
 
 **لدخول لوحة التحكم حاليًا:** `Majed@domain.com` / `u9JV9KALVSbUjeY26d` — غيّرها من داخل اللوحة فورًا واطلب استبدال البريد ببريدك الحقيقي (عن طريق إعادة تشغيل الـseed أو تعديل جدول User).
 
-**الباقي للوصول لجوجل:** شراء/ربط دومين → A Record على `51.21.195.43` → تفعيل HTTPS (certbot) → تحديث `PUBLIC_URL` في `~/aimaged/.env` وإعادة بناء الـfrontend → تسجيل في Google Search Console وإرسال `sitemap.xml`. (الموقع حاليًا على IP بدون دومين، وجوجل لا يفهرس IPs بشكل عملي.)
+**الباقي للوصول لجوجل:** بقي خطوة واحدة: تسجيل `https://aimaged.com` في Google Search Console وإرسال `sitemap.xml` (يحتاج دخولك بحساب جوجل magedmokpel87@gmail.com في المتصفح — التحقق سيكون عبر DNS TXT من Route 53 وهو جاهز خلال دقائق). الدومين وHTTPS وPUBLIC_URL كلها تمّت وفُحصت من الخارج.
 
 ---
 
